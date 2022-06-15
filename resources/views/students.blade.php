@@ -9,6 +9,22 @@
 </head>
 
 <body>
+    <form action="/students" method="post">
+        @csrf
+        <div>
+            <label for="nim">NIM</label>
+            <input type="text" name="nim" id="nim">
+        </div>
+        <div>
+            <label for="nama">Nama</label>
+            <input type="text" name="nama" id="nama">
+        </div>
+        <div>
+            <label for="kelas">Kelas</label>
+            <input type="text" name="kelas" id="kelas">
+        </div>
+        <button type="submit">Submit</button>
+    </form>
     <table class="table">
         <thead>
             <tr>
@@ -19,18 +35,12 @@
         </thead>
         <tbody>
             <tr>
-                <td scope="row"></td>
                 <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td scope="row"></td>
                 <td></td>
                 <td></td>
             </tr>
         </tbody>
     </table>
-
 </body>
 
 </html>

@@ -11,3 +11,5 @@ Route::get('/', function () {
 Route::get('coba', [CobaController::class, 'index']);
 
 Route::get('/students', [StudentController::class, 'index']);
+
+Route::post('/students', [StudentController::class, 'store']);

@@ -17,8 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('nim');
             $table->string('nama');
-            $table->string('alamat')->nullable();
-            $table->string('jurusan')->nullable();
+            $table->string('kelas');
             $table->timestamps();
         });
     }

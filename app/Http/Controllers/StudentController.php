@@ -11,4 +11,15 @@ class StudentController extends Controller
     {
         return view('students');
     }
+
+    public function store(Request $request)
+    {
+        Student::create([
+            'nim' => $request->nim,
+            'nama' => $request->nama,
+            'kelas' => $request->kelas
+        ]);
+
+        return redirect('/students');
+    }
 }
