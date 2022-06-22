@@ -116,15 +116,7 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        $student = Student::find($id);
-
-        // if process failed, redirect to response with error message
-        if (!$student) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Failed to find student',
-            ])->setStatusCode(400);
-        }
+        // Task 1
 
         return response()->json($student);
     }
@@ -138,15 +130,7 @@ class StudentController extends Controller
      */
     public function update(UpdateStudentRequest $request, $id)
     {
-        $student = Student::find($id);
-
-        $student->update([
-            'nim' => $request->nim,
-            'name' => $request->name,
-            'address' => $request->address,
-            'phone' => $request->phone,
-            'birth_date' => $request->birth_date,
-        ]);
+        // Task 2
 
         $user = User::find($student->user_id);
         $user->update([
@@ -176,17 +160,7 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        $student = Student::find($id);
-
-        // if process failed, redirect to response with error message
-        if (!$student) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Failed to find student',
-            ])->setStatusCode(400);
-        }
-
-        $student->delete();
+        // Task 3
         return response()->json(['success' => 'Data berhasil dihapus']);
     }
 }
