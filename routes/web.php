@@ -1,15 +1,34 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\CobaController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
+Auth::routes();
+
+Route::get('/', [HomeController::class, 'index'])->middleware('role_redirect');
+
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/students', [StudentController::class, 'index']);
+    Route::get('/students/{id}', [StudentController::class, 'show']);
+    Route::post('/students', [StudentController::class, 'store']);
+    Route::get('/students/{id}/edit', [StudentController::class, 'edit']);
+    Route::put('/students/{id}', [StudentController::class, 'update']);
+    Route::delete('/students/{id}', [StudentController::class, 'destroy']);
 });
 
-Route::get('coba', [CobaController::class, 'index']);
+Route::middleware(['auth', 'role:student'])->group(function () {
+    Route::get('/home', [AccountController::class, 'index']);
+    Route::put('/home', [AccountController::class, 'update']);
 
-Route::get('/students', [StudentController::class, 'index']);
+    // Criteria3
+    // add route for change password
+});
+Route::put('/updatePassword', [AccountController::class, 'updatePassword']);
 
-Route::post('/students', [StudentController::class, 'store']);
+
+
+// Route::resource('/students', StudentController::class);
