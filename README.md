@@ -8,13 +8,13 @@
 
 ## Install
 
-1. Clone project from [this](https://github.com/Dzyfhuba/pweb2022.git) github repository
+1. Clone project from [this](https://github.com/Dzyfhuba/pweb2022sore.git) github repository
 ```shell
-git clone https://github.com/Dzyfhuba/pweb2022.git
+git clone https://github.com/Dzyfhuba/pweb2022sore.git
 ```
 2. Change directory
 ```shell
-cd pweb2022
+cd pweb2022sore
 ```
 3. Install Composer Dependencies
 ```shell
